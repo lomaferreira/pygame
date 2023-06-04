@@ -10,7 +10,7 @@ pygame.init()  # inicializa todas as funções e variaveis
 largura = 640
 altura = 480
 x=largura/2 #controlam o movimento dos objetos(ta no centro(n exatamente))
-y=0
+y=altura/2
 
 relogio= pygame.time.Clock() #velocidade do movimento
 
@@ -21,7 +21,7 @@ pygame.display.set_caption("Game")  # muda o nome da janela
 # loop infinito principal do jogo(atualização do jogo)
 while True:
     tela.fill((0,0,0))#preenche a tela da cor preta a cada interação(n ver a prolongação do movimento )
-    relogio.tick(100)
+    relogio.tick(50)
    
     # detecta se algum evento ocorreu
     for event in pygame.event.get():
@@ -29,12 +29,17 @@ while True:
         if event.type == QUIT:
             pygame.quit()
             exit()
-    
-    
+
+    if pygame.key.get_pressed()[K_a]:# Se teclar ou precionar a tecla A
+         x-=20
+    if pygame.key.get_pressed()[K_d]:
+        x+=20
+    if pygame.key.get_pressed()[K_w]:
+        y-=20
+    if pygame.key.get_pressed()[K_s]:
+        y+=20             
+
     pygame.draw.rect(tela,(255,0,0),(x,y,40,50))#desenha objeto na tela(superfice, cor, posição(x,y,width,height))
-    if(y>=altura):  #não sumir da tela
-        y=0
-    y+=1
     
    
     
@@ -53,4 +58,23 @@ while True:
     pygame.draw.line(tela,(255,255,0),(390,10),(90,600),10)# coordenada inicio e fim da linha e espersura da linha
     '''
     
+    '''
+    if(y>=altura):  #não sumir da tela o objeto
+        y=0
+    y+=1
+    '''
+
+
+    '''
+        #controla movimentos(dentro do for event) 
+        if event.type == KEYDOWN:#qualquer tecla
+           if event.key==K_a: #tecla A
+               x-=20
+           if event.key==K_d: #tecla D
+               x+=20
+           if event.key==K_w: #tecla W
+               y-=20
+           if event.key==K_s: #tecla S
+               y+=20         
+        '''  
     
