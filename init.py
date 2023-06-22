@@ -8,18 +8,20 @@ from random import randint  # importa a funçao randint(sortea valores)
 pygame.init()  # inicializa todas as funções e variaveis
 
 
-pygame.mixer.music.set_volume(0.1)#controla o volume da musica de fundo entre 0 e 1
-musica_de_fundo=pygame.mixer.music.load('assets/BoxCat Games - CPU Talk.mp3')
-pygame.mixer.music.play(-1)#executa a música e repete depois que termina com o -1
+# controla o volume da musica de fundo entre 0 e 1
+pygame.mixer.music.set_volume(0.1)
+musica_de_fundo = pygame.mixer.music.load('assets/BoxCat Games - CPU Talk.mp3')
+# executa a música e repete depois que termina com o -1
+pygame.mixer.music.play(-1)
 
-barulho_colisao=pygame.mixer.Sound('assets/smw_1-up.wav')
+barulho_colisao = pygame.mixer.Sound('assets/smw_1-up.wav')
 barulho_colisao.set_volume(0.5)
-
 
 
 largura = 640
 altura = 480
-x = int(largura/2)  # controlam o movimento dos objetos(ta no centro(n exatamente))
+# controlam o movimento dos objetos(ta no centro(n exatamente))
+x = int(largura/2)
 y = int(altura/2)
 
 # posições de escolha pra x, desconsiderando a altura do retangulo pra n sair da tela
